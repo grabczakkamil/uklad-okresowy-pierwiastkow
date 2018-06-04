@@ -1,0 +1,18 @@
+* {
+   box-sizing: border-box; 
+}
+
+body {
+    font-family: 'Yanone Kaffeesatz', sans-serif;
+}
+
+.pierwiastek {
+    width: 50px;
+    height: 75px;
+    margin: 4px;
+    border-radius: 5px;
+}
+
+.alkaiczny {
+    background-color: #ff9900;
+}
