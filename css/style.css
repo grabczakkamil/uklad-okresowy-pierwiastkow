@@ -1,18 +1,171 @@
 * {
-   box-sizing: border-box; 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
 
 body {
     font-family: 'Yanone Kaffeesatz', sans-serif;
+    counter-reset: section2 56 section3 88 section4 71 section5 103 section;
+    margin: 60px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: repeat(18, 1fr);
+    grid-template-rows: repeat(9, 1fr);
+}
+
+#hel {
+    grid-column-start: 18;
+}
+
+#bor {
+    grid-column-start: 13;
+}
+
+#glin {
+    grid-column-start: 13;
+}
+
+#cer {
+    grid-column-start: 4;
+}
+
+#tor {
+    grid-column-start: 4;
 }
 
 .pierwiastek {
-    width: 50px;
-    height: 75px;
+    max-width: 60px;
+    max-height: 80px;
     margin: 4px;
     border-radius: 5px;
+    text-align: center;
+    padding: 10px 0 10px 0;
+}
+
+.pierwiastek:hover {
+    transform: scale(1.75);
+    transition: transform 100ms linear;
+}
+
+p:nth-child(2) {
+    font-size: 14px;
 }
 
 .alkaiczny {
-    background-color: #ff9900;
+    background-color: #e8a87c;
 }
+
+.szlachetny {
+    background-color: #97caef;
+}
+
+.ziem-alkaicznych {
+    background-color: #f8e9a1;
+}
+
+.polmetal {
+    background-color: #379683;
+}
+
+.niemetal {
+    background-color: #8ee4af;
+}
+
+.bloku-p {
+    background-color: #3feee6;
+}
+
+.przejsciowy {
+    background-color: #f172a1;
+}
+
+.lantanowce {
+    background-color: #e27d60;
+}
+
+.aktynowce {
+    background-color: #edb5bf;
+}
+
+.inny {
+    background-color: #adadad;
+}
+
+h2::before {
+    counter-increment: section;
+    content: counter(section) " ";
+    font-size: 10px;
+    font-weight: normal;
+}
+
+.lantanowce h2::before {
+    counter-increment: section2;
+    content: counter(section2) " ";
+}
+
+.aktynowce h2::before {
+    counter-increment: section3;
+    content: counter(section3) " ";
+}
+
+.po-lantanowce h2::before {
+    counter-increment: section4;
+    content: counter(section4) " ";
+}
+
+.po-aktynowce h2::before {
+    counter-increment: section5;
+    content: counter(section5) " ";
+}
+
+@media (max-width: 992px) {
+
+    #hel,
+    #bor,
+    #glin,
+    #cer,
+    #tor {
+        grid-column-start: auto;
+    }
+    .container {
+
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .pierwiastek {
+        max-width: 480px;
+        max-height: auto;
+    }
+    .pierwiastek h2,
+    .pierwiastek p {
+        display: inline-block;
+    }
+
+    p:nth-child(2) {
+        font-size: 25px;
+        margin: 0 20px 0 20px;
+    }
+
+    .pierwiastek:hover {
+        transform: scale(1.25);
+        transition: transform 100ms linear;
+    }
+    h2::before {
+        font-size: 14px;
+
+
+    }
+    @media (max-width: 576px) {
+
+        .container {
+
+            grid-template-columns: 1fr;
+        }
+    }
